@@ -34,7 +34,7 @@ public class FXMLDocumentController implements Initializable {
     private ResourceBundle resources;
 
     @FXML
-    private URL location;
+   private URL location;
 
     @FXML
     private Button loginbt;
@@ -46,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane Loginpane;
 
     @FXML
-    private ComboBox<?> domainbt;
+    private ComboBox<String> domainbt;
 
     @FXML
     private TextField pseudotxt;
@@ -58,7 +58,7 @@ public class FXMLDocumentController implements Initializable {
     private TextField mdptxt;
 
     @FXML
-    private ComboBox<?> typebt;
+    private ComboBox<String> typebt;
 
     @FXML
     private Button registerbt;
@@ -72,6 +72,8 @@ public class FXMLDocumentController implements Initializable {
      Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+   
+    
     
     public void LoginpaneShow(){
     
@@ -79,20 +81,21 @@ public class FXMLDocumentController implements Initializable {
         Signuppane.setVisible(false);
     }
     
+   
     public void SignuppaneShow(){
     
         Loginpane.setVisible(false);
         Signuppane.setVisible(true);
     }
     private void Login (ActionEvent event) throws Exception{  
-        conn = (Connection) DataSource.getInstance();
+        conn =  (Connection) DataSource.getInstance();
         
     String sql = "Select * from user where Pseudo = ? and password = ? and type = ? ";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, pseudotxt.getText());
             pst.setString(2, mdptxt.getText());
-            pst.setString(3, typebt.getValue().toString());
+            pst.setString(3, typebt.getValue());
             
             rs = pst.executeQuery();
        } catch (SQLException e) {
@@ -103,23 +106,31 @@ public class FXMLDocumentController implements Initializable {
         String sql = "insert into users (type,domaine,email,pseudo,mdp ,rmdp) values (?,?,?,?,?,?)";
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, typebt.getAccessibleText());
-            pst.setString(2, domainbt.getAccessibleText());
+            pst.setString(1, typebt. getValue());
+            pst.setString(2, domainbt.getValue());
             pst.setString(3, emailtxt.toString());
             pst.setString(4, pseudotxt.getText());
            pst.setString(5, mdptxt.getText());
            pst.setString(6, rmdptxt.getText());
-            pst.execute();
+            pst.executeQuery();
             
             
         } catch (SQLException e) {
             
            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, e);
-       }
+       }}
     
    
+    
+     
+     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+domainbt.getItems().addAll("photography", "Design", "Editing");
+typebt.getItems().addAll("client", "artist");
+
+
+// TODO
     }    
     
 }

@@ -9,8 +9,8 @@ package entite;
  *
  * @author 21650
  */
-public class Client {
-    private int id ;
+public class Client extends User {
+   
     private String nom;
     private String prenom;
     
@@ -18,8 +18,9 @@ public class Client {
     public Client (){
         
     }
-    public Client(int id , String nom , String prenom){
-        this.id=id;
+    public Client(int id_user , String nom , String prenom){
+      super();
+      
         this.nom=nom;
         this.prenom=prenom;
         
@@ -28,17 +29,10 @@ public class Client {
     /**
      * @return the id
      */
-    public int getId() {
-        return id;
-    }
+ 
+    
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
+ 
     /**
      * @return the nom
      */
@@ -69,7 +63,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + '}';
+        return "Client{" + "id=" + id_user + ", nom=" + nom + ", prenom=" + prenom + '}';
     }
     
     

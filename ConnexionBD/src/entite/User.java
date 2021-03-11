@@ -10,23 +10,40 @@ package entite;
  * @author 21650
  */
 public class User {
-    private int id_user ;
+
+    /**
+     *
+     */
+    public int id_user ;
     private String pseudo ;
     private String email;
-    private String type;
+    String nom;
+   String prenom;
+   
+   
   private String role;
   
    public  User (){
     
 }
-   public User(int id_user , String pseudo , String email , String type, String role){
+   public User (int id_user){
+     this.id_user=id_user;
+   }
+   public User(int id_user , String pseudo , String email , String role){
        this.id_user=id_user;
        this.pseudo=pseudo;
        this.email=email;
-       this.type=email;
        this.role=role;
-     
    }
+       public User(int id_user , String nom , String prenom){
+           this.id_user=id_user;
+           this.nom=nom;
+           this.prenom=prenom;
+           
+       }
+     
+   
+   
 
     public int getId_user() {
         return id_user;
@@ -51,6 +68,23 @@ public class User {
         this.pseudo = pseudo;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+
     /**
      * @return the email
      */
@@ -65,19 +99,7 @@ public class User {
         this.email = email;
     }
 
-    /**
-     * @return the type
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * @param type the type to set
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
+    
 
     /**
      * @return the domain
@@ -95,7 +117,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id_user + ", pseudo=" + pseudo + ", email=" + email + ", type=" + type + ", role=" + role+ '}';
+        return "User{" + "id=" + id_user + ",nom= "+nom+ ",prenom ="+prenom+ ", pseudo=" + pseudo + ", email=" + email +  ", role=" + role+ '}';
     }
    
 }

@@ -11,19 +11,41 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="485.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="login.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.FXMLDocumentController">
     <children>
-      <Button fx:id="loginbt" layoutX="56.0" layoutY="63.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="174.0" style="-fx-background-color: C4A5C9;" text="Login ">
+      <Button fx:id="loginbt" layoutX="56.0" layoutY="63.0" mnemonicParsing="false" onAction="#LoginpaneShow" prefHeight="52.0" prefWidth="174.0" style="-fx-background-color: C4A5C9;" text="se connecter">
          <font>
-            <Font name="Gill Sans MT" size="20.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="signinbt" layoutX="259.0" layoutY="63.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="174.0" style="-fx-background-color: E392D3;" text="Sign in">
+      <Button fx:id="signinbt" layoutX="259.0" layoutY="63.0" mnemonicParsing="false" onAction="#SignuppaneShow" prefHeight="52.0" prefWidth="174.0" style="-fx-background-color: E392D3;" text="s'enregistrer">
          <font>
-            <Font name="Lucida Fax Regular" size="20.0" />
+            <Font name="Arial" size="22.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="Loginpane" layoutY="165.0" prefHeight="318.0" prefWidth="492.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="165.0">
+      <AnchorPane fx:id="Loginpane" layoutY="166.0" prefHeight="308.0" prefWidth="485.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="166.0">
+         <children>
+            <PasswordField layoutX="216.0" layoutY="116.0" prefHeight="26.0" prefWidth="190.0" promptText="entrer votre mot de passe" />
+            <TextField layoutX="216.0" layoutY="71.0" prefHeight="26.0" prefWidth="190.0" promptText="entrer votre pseudo" />
+            <Text layoutX="96.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pseudo" textAlignment="CENTER" wrappingWidth="85.83061981201172">
+               <font>
+                  <Font name="Javanese Text" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="107.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font name="Javanese Text" size="19.0" />
+               </font>
+            </Text>
+            <Button fx:id="loginbt" layoutX="147.0" layoutY="175.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" text="Login ">
+               <font>
+                  <Font name="MS Outlook" size="16.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="typebt" editable="true" layoutX="216.0" layoutY="29.0" prefHeight="30.0" prefWidth="190.0" promptText="qui vous-etes?" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Signuppane" layoutY="165.0" prefHeight="318.0" prefWidth="492.0" visible="false" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="165.0">
          <children>
             <ComboBox fx:id="domainbt" editable="true" layoutX="274.0" layoutY="27.0" prefHeight="26.0" prefWidth="174.0" promptText="domaine" />
             <TextField fx:id="pseudotxt" layoutX="274.0" layoutY="132.0" prefHeight="26.0" prefWidth="174.0" promptText="Pseudo" AnchorPane.bottomAnchor="159.6" />
@@ -36,34 +58,12 @@
                   <Image url="@../../../103-1039446_circle-clip-art-symbol-add-user-icon-transparent.png" />
                </image>
             </ImageView>
-            <Button fx:id="registerbt" layoutX="34.0" layoutY="263.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="424.0" style="-fx-background-color: #713E56;" text="Register ">
+            <Button fx:id="registerbt" layoutX="34.0" layoutY="247.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="424.0" style="-fx-background-color: #713E56;" text="Register ">
                <font>
-                  <Font name="Jokerman" size="33.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
             </Button>
             <TextField fx:id="emailtxt" layoutX="274.0" layoutY="93.0" prefHeight="26.0" prefWidth="174.0" promptText="Email" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="Signuppane" layoutY="174.0" prefHeight="300.0" prefWidth="520.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="174.0">
-         <children>
-            <PasswordField layoutX="178.0" layoutY="114.0" prefHeight="26.0" prefWidth="190.0" promptText="entrer votre mot de passe" visible="false" />
-            <TextField layoutX="178.0" layoutY="63.0" prefHeight="26.0" prefWidth="190.0" promptText="entrer votre pseudo" visible="false" />
-            <Text layoutX="42.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pseudo" visible="false">
-               <font>
-                  <Font name="Javanese Text" size="19.0" />
-               </font>
-            </Text>
-            <Text layoutX="42.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" visible="false">
-               <font>
-                  <Font name="Javanese Text" size="19.0" />
-               </font>
-            </Text>
-            <Button layoutX="302.0" layoutY="214.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" text="Login " visible="false">
-               <font>
-                  <Font name="MS Outlook" size="16.0" />
-               </font>
-            </Button>
-            <ComboBox layoutX="179.0" layoutY="22.0" prefHeight="30.0" prefWidth="190.0" promptText="choose type" visible="false" />
          </children>
       </AnchorPane>
     </children>

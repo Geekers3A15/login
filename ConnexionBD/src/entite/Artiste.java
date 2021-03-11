@@ -9,45 +9,23 @@ package entite;
  *
  * @author 21650
  */
-public class Artiste {
-    public int id ;
-    public String nom;
-    public String prenom;
-    public String Domaine;
+public class Artiste extends User {
+  
+    
+   private String Domaine;
      
     public Artiste(){
         
     }
-        public Artiste(int id , String nom,String prenom, String Domaine){
-            this.id=id;
-            this.nom=nom;
-            this.prenom=prenom;
+        public Artiste(int id_user, String nom,String prenom, String Domaine){
+           super();
+           
             this.Domaine=Domaine;
         }    
 
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+  
 
     public String getDomaine() {
         return Domaine;
@@ -59,8 +37,9 @@ public class Artiste {
 
     @Override
     public String toString() {
-        return "Artiste{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", Domaine=" + Domaine + '}';
+        return "Artiste{" + "id=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", Domaine=" + Domaine + '}';
     }
+    
     
     
 }

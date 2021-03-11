@@ -5,6 +5,8 @@
  */
 package Service;
 
+import entite.User;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,8 +16,10 @@ import java.util.List;
  */
 public interface Iservice <T> {
  
-   void AjouterUser();
-   void DeleteUser();
+   void AjouterUser(User u) throws SQLException;
+   List<T> read() throws SQLException;
+
+   void DeleteUser(User u) throws SQLException;
    
 }
   
